@@ -6,14 +6,13 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Objects;
 
-
 @Data
-@Embeddable
+@Entity
 public class Provider implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
+    private Long id;
 
     @OneToOne(cascade = {CascadeType.DETACH, CascadeType.MERGE})
     @JoinColumn(name = "contact")

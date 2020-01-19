@@ -5,6 +5,7 @@ import lombok.Data;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Objects;
+import java.util.Set;
 
 @Data
 @Entity
@@ -19,6 +20,9 @@ public class Item implements Serializable {
 
     @Column(nullable = false, length = 50)
     private String description;
+
+    @OneToMany(fetch = FetchType.EAGER)
+    private Set<CatalogItem> catalogItems;
 
     @Override
     public int hashCode() {

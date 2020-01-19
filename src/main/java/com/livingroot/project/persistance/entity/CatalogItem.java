@@ -16,7 +16,7 @@ public class CatalogItem implements Serializable {
     @Column(nullable = false)
     private Integer price;
 
-    @OneToOne(optional = false)
+    @ManyToOne(optional = true)
     @JoinColumn(name = "item")
     private Item item;
 
@@ -24,8 +24,4 @@ public class CatalogItem implements Serializable {
     @JoinColumn(name = "provider")
     private Provider povider;
 
-//    ???
-//    @ElementCollection(fetch = FetchType.EAGER)
-//    @CollectionTable(name = "order_item", joinColumns = @JoinColumn(name = "catalog_item"))
-//    private Set<>
 }

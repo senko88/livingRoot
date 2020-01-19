@@ -9,19 +9,18 @@ import java.io.Serializable;
 @Embeddable
 public class CatalogItem implements Serializable {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    @OneToOne(optional = false)
+    @JoinColumn(name = "provider")
+    private Provider provider;
+
+    @ManyToOne
+    @JoinColumn(name = "item")
+    private Item item;
 
     @Column(nullable = false)
     private Integer price;
 
-    @ManyToOne(optional = true)
-    @JoinColumn(name = "item")
-    private Item item;
-
-    @OneToOne(optional = false)
-    @JoinColumn(name = "provider")
-    private Provider povider;
+    @Column(nullable = false)
+    private Integer amount;
 
 }

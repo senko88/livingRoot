@@ -20,22 +20,4 @@ public class Item implements Serializable {
 
     @Column(nullable = false, length = 50)
     private String description;
-
-    @OneToMany(fetch = FetchType.EAGER)
-    private Set<CatalogItem> catalogItems;
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id, name, description);
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj) return true;
-        if (obj == null || getClass() != obj.getClass()) return false;
-        Item item = (Item) obj;
-        return Objects.equals(id, item.id) &&
-                name.equals(item.name) &&
-                description.equals(item.description);
-    }
 }

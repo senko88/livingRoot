@@ -10,6 +10,7 @@ import java.util.Set;
 
 @Data
 @Entity
+@Table(name = "order_")
 public class Order implements Serializable {
 
     @Id
@@ -17,7 +18,7 @@ public class Order implements Serializable {
     private Long id;
 
     @OneToOne(optional = false)
-    @JoinColumn(name = "contact")
+    @JoinColumn(name = "customer")
     private Customer customer;
 
     @Column
